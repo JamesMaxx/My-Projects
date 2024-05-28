@@ -6,16 +6,16 @@ Hello, welcome to my journey of learning and exploring various programming langu
 
 - **Python**: I'm currently learning Python and it's amazing! I'm loving the simplicity and readability of the language. ✅
 - **JavaScript**: I'm diving into the world of JavaScript and I can't wait to explore all its capabilities. From front-end to back-end, JavaScript is truly versatile. ✅
-- **Ruby**: I've heard great things about Ruby, so I'm eager to dive into this beautiful language. I'm excited to learn about its elegant syntax and the Ruby on Rails framework. ✅
-- **Go**: I'm curious about the Go language and I'm eager to learn about its simplicity, speed, and concurrent design. ✅
-- **Swift**: I've always been fascinated by Apple's Swift language. I'm excited to learn about its modern syntax and how it integrates with iOS and macOS development. ✅
+- **Python**: I've heard great things about Python, so I'm eager to dive into this beautiful language. I'm excited to learn about its elegant syntax and the Flask framework. ✅
+- **Django**: I'm curious about the Django web framework and I'm eager to learn about its model-view-template architecture and powerful admin interface. ✅
+- **FAST Api**: I've always been fascinated by the FAST Api framework. I'm excited to learn about its modern syntax and how it integrates with web development. ✅
 
 ## Languages I want to learn
 
 - **TypeScript**: TypeScript is a superset of JavaScript that adds static types to the language. I'm intrigued by its ability to catch errors early and its compatibility with the large JavaScript ecosystem.
 - **Kotlin**: Kotlin is a statically-typed language that runs on the JVM. I'm drawn to its simplicity, compatibility with Java, and the Android platform.
 - **ReasonML**: I'm excited to learn about the ReasonML language, which is a statically-typed dialect of JavaScript. It's a great way to leverage the power of JavaScript while having the benefits of a typed language.
-- **Elixir**: Elixir is a functional language that runs on the Erlang virtual machine. I'm interested in learning about its focus on concurrency and the Erlang ecosystem.
+- **Rust**: I'm excited to learn about the Rust programming language. It's a fast, secure, and safe language that's perfect for backend development.
 
 ## AI is part of my learning journey
 
