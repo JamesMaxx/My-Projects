@@ -1,65 +1,101 @@
-# Backend Projects
+# Python project
 
-This repository contains a collection of backend projects that I will be working on to enhance my skills and knowledge in backend development. These projects will cover various topics and technologies, allowing me to gain hands-on experience and learn through practical implementation.
+Behold My Awesome Project!
 
-## Learning Steps
+[![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
-1. **Fundamentals**
+License: MIT
 
-   - Learn the basics of backend development, including server-side programming languages (e.g., Node.js, Python, Ruby, Java), web frameworks (e.g., Express.js, Django, Ruby on Rails, Spring), and databases (e.g., MySQL, PostgreSQL, MongoDB).
-   - Understand the client-server architecture and how backend systems interact with frontend applications.
-   - Study HTTP protocols, RESTful APIs, and web services.
+## Settings
 
-2. **Building APIs**
+Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings.html).
 
-   - Design and implement RESTful APIs using popular frameworks and libraries.
-   - Learn about API authentication, authorization, and security best practices.
-   - Explore API documentation tools and techniques.
+## Basic Commands
 
-3. **Database Management**
+### Setting Up Your Users
 
-   - Gain proficiency in relational and non-relational databases.
-   - Learn database design principles, schema modeling, and query optimization.
-   - Implement CRUD (Create, Read, Update, Delete) operations and data manipulation.
+- To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
 
-4. **Authentication and Authorization**
+- To create a **superuser account**, use this command:
 
-   - Implement user authentication and authorization mechanisms.
-   - Explore techniques like JSON Web Tokens (JWT), OAuth, and session management.
-   - Learn about secure password storage and password hashing algorithms.
+      $ python manage.py createsuperuser
 
-5. **Caching and Performance Optimization**
+For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
 
-   - Understand caching strategies and techniques for improving application performance.
-   - Implement caching mechanisms like Redis, Memcached, or in-memory caching.
-   - Learn about load balancing, horizontal scaling, and performance monitoring.
+### Type checks
 
-6. **Testing and Deployment**
+Running type checks with mypy:
 
-   - Write unit tests, integration tests, and end-to-end tests for backend applications.
-   - Learn about continuous integration and continuous deployment (CI/CD) pipelines.
-   - Explore containerization technologies like Docker and container orchestration with Kubernetes.
+    $ mypy python_project
 
-7. **Real-time Applications**
+### Test coverage
 
-   - Build real-time applications using WebSockets or other real-time communication protocols.
-   - Implement features like chat applications, live updates, and real-time data streaming.
+To run the tests, check your test coverage, and generate an HTML coverage report:
 
-8. **Microservices and Event-driven Architecture**
+    $ coverage run -m pytest
+    $ coverage html
+    $ open htmlcov/index.html
 
-   - Understand the principles of microservices and event-driven architecture.
-   - Learn about message queues, event streaming, and distributed systems.
-   - Implement microservices and explore service discovery and orchestration.
+#### Running tests with pytest
 
-9. **Cloud and Serverless Computing**
+    $ pytest
 
-   - Explore cloud platforms like AWS, Google Cloud, or Microsoft Azure.
-   - Learn about serverless computing and serverless architectures (e.g., AWS Lambda, Google Cloud Functions).
-   - Implement serverless functions and integrate them with other cloud services.
+### Live reloading and Sass CSS compilation
 
-10. **Continuous Learning and Exploration**
-    - Stay up-to-date with the latest backend technologies, frameworks, and best practices.
-    - Participate in coding challenges, hackathons, and open-source projects to enhance your skills.
-    - Collaborate with other developers, attend meetups, and engage in the developer community.
+Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html#sass-compilation-live-reloading).
 
-This learning path is designed to provide a comprehensive understanding of backend development and equip you with the skills and knowledge necessary to build robust, scalable, and secure backend systems. Remember, learning is an ongoing process, and it's essential to continuously practice, experiment, and adapt to new technologies and trends in the ever-evolving world of backend development.
+### Celery
+
+This app comes with Celery.
+
+To run a celery worker:
+
+```bash
+cd python_project
+celery -A config.celery_app worker -l info
+```
+
+Please note: For Celery's import magic to work, it is important _where_ the celery commands are run. If you are in the same folder with _manage.py_, you should be right.
+
+To run [periodic tasks](https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html), you'll need to start the celery beat scheduler service. You can start it as a standalone process:
+
+```bash
+cd python_project
+celery -A config.celery_app beat
+```
+
+or you can embed the beat service inside a worker with the `-B` option (not recommended for production use):
+
+```bash
+cd python_project
+celery -A config.celery_app worker -B -l info
+```
+
+### Email Server
+
+In development, it is often nice to be able to see emails that are being sent from your application. For that reason local SMTP server [Mailpit](https://github.com/axllent/mailpit) with a web interface is available as docker container.
+
+Container mailpit will start automatically when you will run all docker containers.
+Please check [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html) for more details how to start all containers.
+
+With Mailpit running, to view messages that are sent by your application, open your browser and go to `http://127.0.0.1:8025`
+
+### Sentry
+
+Sentry is an error logging aggregator service. You can sign up for a free account at <https://sentry.io/signup/?code=cookiecutter> or download and host it yourself.
+The system is set up with reasonable defaults, including 404 logging and integration with the WSGI application.
+
+You must set the DSN url in production.
+
+## Deployment
+
+The following details how to deploy this application.
+
+### Heroku
+
+See detailed [cookiecutter-django Heroku documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-on-heroku.html).
+
+### Docker
+
+See detailed [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
