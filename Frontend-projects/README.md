@@ -2,12 +2,6 @@
 
 This repository contains a collection of frontend projects that I have worked on. Each project is contained within its own directory and includes a README file with instructions on how to run and use the project.
 
-## Projects
-
-- **Project 1**: A brief description of Project 1.
-- **Project 2**: A brief description of Project 2.
-- **Project 3**: A brief description of Project 3.
-
 ## Getting Started
 
 To get started with any of the projects, follow these steps:
