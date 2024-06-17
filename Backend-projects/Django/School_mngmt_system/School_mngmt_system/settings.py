@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-j9v=$8-c^ozoex4w!da621lb+hy%@9m(o0h0z)$t$z0$$)t_hw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '*' ]
 
 
 # Application definition
@@ -37,7 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'students',
+    'teachers',
+    'management',
+    'adminportal',
 ]
+
+AUTH_USER_MODEL = 'adminportal.SystemUser'
+
+LOGIN_REDIRECT_URL = 'admin_dashboard'
+
+LOGOUT_REDIRECT_URL = 'admin_dashboard'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -98,6 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Disable the default user model checks
+AUTH_USER_MODEL_CHECKS = []
 
 
 # Internationalization
