@@ -3,23 +3,27 @@
 This is a Django-based web application for managing various aspects of a school. It provides separate portals for students, teachers, and administrators with different functionalities.
 
 ## Student Portal
+
 - View their academic records, including grades, attendance, and schedules
 - Access course materials and assignments
 - Communicate with teachers and classmates
 
 ## Teacher Portal
+
 - Manage classes and student rosters
 - Record grades and attendance
 - Upload course materials and assignments
 - Communicate with students and parents
 
 ## Management Portal
+
 - Oversee school operations and administrative tasks
 - Manage staff and student records
 - Generate reports and analytics
 - Handle billing and financial matters
 
 ## Admin Portal
+
 - Manage user accounts and access levels
 - Configure system settings and preferences
 - Monitor system logs and performance
