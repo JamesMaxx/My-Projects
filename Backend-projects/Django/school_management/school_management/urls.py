@@ -28,10 +28,10 @@ The URL patterns for the school management system. This includes the following r
 - `admin-portal/`: Routes related to the admin portal, defined in the `admin_portal.urls` module.
 """
 urlpatterns = [
-    path('admin', admin.site.urls),
-    path('students', include('students.urls')),
-    path('teachers', include('teachers.urls')),
+    path('admin/', admin.site.urls),
+    path('students/', include('students.urls')),
+    path('teachers/', include('teachers.urls')),
     path('management/', include('management.urls')),
-    path('admin-portal', include('admin_portal.urls')),
+    path('admin-portal/', include('admin_portal.urls')),
     path('', home, name='home'),
 ]
