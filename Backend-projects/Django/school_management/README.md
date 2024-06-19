@@ -1,5 +1,7 @@
 # School Management System
 
+[![](https://copilot.microsoft.com/images/create/design-for-a-django-based-school-management-system/1-667277f62b1b4bb8aec346867b7a95dd?id=8z7iF8GvDGpK%2fCHz%2fAgnbg%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG2.t1e23vS9VWKvpmc52Ae7&FORM=SYDBIC)
+
 This is a Django-based web application for managing various aspects of a school. It provides separate portals for students, teachers, and administrators with different functionalities.
 
 ## Student Portal
