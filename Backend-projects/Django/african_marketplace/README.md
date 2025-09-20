@@ -27,6 +27,33 @@ A Django-based marketplace celebrating authentic African cultural heritage throu
 
 ## 🚀 Quick Start
 
+### 🐳 Docker Deployment (Recommended)
+
+**Easiest way to get started:**
+```bash
+cd docker
+./launch.sh
+```
+
+This will:
+- Build the Docker image
+- Set up the database
+- Load demo data
+- Start the server at http://localhost:8000
+
+**Manual Docker commands:**
+```bash
+# Simple SQLite setup
+docker-compose -f docker/docker-compose.sqlite.yml up --build
+
+# Full PostgreSQL setup
+docker-compose -f docker/docker-compose.yml up --build
+```
+
+See `docker/README.md` for detailed Docker documentation.
+
+### 🔧 Manual Installation
+
 ### Prerequisites
 - Python 3.8+
 - Django 4.2.18
