@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.2-slim-bullseye
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -9,6 +9,7 @@ WORKDIR /app
 
 # Install system dependencies
 RUN apt-get update \
+    && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends \
         postgresql-client \
         build-essential \
