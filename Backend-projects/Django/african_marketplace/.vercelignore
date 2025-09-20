@@ -54,9 +54,6 @@ db.sqlite3-journal
 staticfiles/
 staticfiles_build/
 
-# Media files (use external storage for production)
-media/
-
 # Docker files (not needed for Vercel)
 docker/
 Dockerfile*
@@ -73,12 +70,23 @@ docker-compose*.yml
 .git/
 .gitignore
 
-# Documentation that's not needed for deployment
+# Documentation
 README.md
 DEPLOYMENT.md
 VERSION_UPDATES.md
+VERCEL_DEPLOY.md
+DEPLOY_NOW.md
 
 # Test files
 tests/
 test_*.py
 *_test.py
+
+# Node.js files (prevent Node.js detection)
+package.json
+package-lock.json
+yarn.lock
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
