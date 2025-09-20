@@ -6,7 +6,8 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('marketplace.urls')),
+    path('api/', include('marketplace.api_urls')),  # API endpoints
+    path('', include('marketplace.urls')),  # Traditional views
     
     # Authentication URLs
     path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
