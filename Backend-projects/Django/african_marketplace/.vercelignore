@@ -1,0 +1,84 @@
+# Vercel ignore file
+# Exclude these files and directories from deployment
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Static files (will be built during deployment)
+staticfiles/
+staticfiles_build/
+
+# Media files (use external storage for production)
+media/
+
+# Docker files (not needed for Vercel)
+docker/
+Dockerfile*
+docker-compose*.yml
+*.dockerignore
+
+# Development files
+.env
+.env.local
+.env.development
+.env.test
+
+# Git
+.git/
+.gitignore
+
+# Documentation that's not needed for deployment
+README.md
+DEPLOYMENT.md
+VERSION_UPDATES.md
+
+# Test files
+tests/
+test_*.py
+*_test.py
