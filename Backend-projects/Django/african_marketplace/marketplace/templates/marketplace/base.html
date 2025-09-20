@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}African Heritage Marketplace{% endblock %}</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom African-themed CSS -->
+    <style>
+        :root {
+            --african-red: #D32F2F;
+            --african-blue: #1976D2;
+            --african-orange: #FF8F00;
+            --african-green: #388E3C;
+            --african-gold: #F57C00;
+            --african-brown: #6D4C41;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--african-red) !important;
+        }
+
+        .btn-african {
+            background-color: var(--african-red);
+            border-color: var(--african-red);
+            color: white;
+        }
+
+        .btn-african:hover {
+            background-color: var(--african-orange);
+            border-color: var(--african-orange);
+            color: white;
+        }
+
+        .card-header-african {
+            background-color: var(--african-blue);
+            color: white;
+        }
+
+        .text-african {
+            color: var(--african-red);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--african-red), var(--african-orange));
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .product-card {
+            transition: transform 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .cultural-badge {
+            background-color: var(--african-gold);
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .footer {
+            background-color: var(--african-brown);
+            color: white;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'marketplace:home' %}">
+                <i class="bi bi-gem"></i> African Heritage Marketplace
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'marketplace:home' %}">
+                            <i class="bi bi-house"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'marketplace:products' %}">
+                            <i class="bi bi-grid"></i> All Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'marketplace:upload' %}">
+                            <i class="bi bi-upload"></i> Upload Product
+                        </a>
+                    </li>
+                </ul>
+                
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-person"></i> {{ user.username }}
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% if user.is_staff %}
+                                    <li><a class="dropdown-item" href="/admin/">
+                                        <i class="bi bi-gear"></i> Admin Panel
+                                    </a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                {% endif %}
+                                <li><a class="dropdown-item" href="{% url 'logout' %}">
+                                    <i class="bi bi-box-arrow-right"></i> Logout
+                                </a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">
+                                <i class="bi bi-box-arrow-in-right"></i> Login
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% if messages %}
+            <div class="container mt-3">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="bi bi-gem"></i> African Heritage Marketplace</h5>
+                    <p>Celebrating and preserving African cultural heritage through authentic traditional products.</p>
+                </div>
+                <div class="col-md-6">
+                    <h6>Cultural Values</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check2"></i> Authentic African craftsmanship</li>
+                        <li><i class="bi bi-check2"></i> Supporting local artisans</li>
+                        <li><i class="bi bi-check2"></i> Preserving traditional knowledge</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-3">
+            <div class="text-center">
+                <small>&copy; 2024 African Heritage Marketplace. Honoring tradition, embracing culture.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

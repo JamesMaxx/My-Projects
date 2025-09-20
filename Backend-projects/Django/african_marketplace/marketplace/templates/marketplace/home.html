@@ -1,0 +1,138 @@
+{% extends 'marketplace/base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">
+            <i class="bi bi-gem"></i> African Heritage Marketplace
+        </h1>
+        <p class="lead mb-4">
+            Discover authentic African cultural treasures, handcrafted with traditional techniques 
+            and rich cultural significance passed down through generations.
+        </p>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <a href="{% url 'marketplace:products' %}" class="btn btn-light btn-lg me-3">
+                    <i class="bi bi-grid"></i> Explore Products
+                </a>
+                <a href="{% url 'marketplace:upload' %}" class="btn btn-outline-light btn-lg">
+                    <i class="bi bi-upload"></i> Share Your Heritage
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <h2 class="text-african fw-bold">Featured African Heritage Products</h2>
+                <p class="lead">Authentic items celebrating the rich diversity of African culture</p>
+            </div>
+        </div>
+
+        {% if featured_products %}
+            <div class="row">
+                {% for product in featured_products %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card h-100">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 250px; object-fit: cover;">
+                            {% else %}
+                                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                                    <i class="bi bi-image text-muted" style="font-size: 3rem;"></i>
+                                </div>
+                            {% endif %}
+                            
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    {% if product.origin_tribe %}
+                                        <span class="badge cultural-badge">{{ product.origin_tribe }}</span>
+                                    {% endif %}
+                                </div>
+                                
+                                <p class="card-text text-muted small">{{ product.description|truncatewords:20 }}</p>
+                                
+                                {% if product.cultural_meaning %}
+                                    <p class="card-text small">
+                                        <strong class="text-african">Cultural Significance:</strong><br>
+                                        {{ product.cultural_meaning|truncatewords:15 }}
+                                    </p>
+                                {% endif %}
+                                
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-success">${{ product.price }}</span>
+                                        <small class="text-muted">{{ product.category.name }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="row">
+                <div class="col-12 text-center py-5">
+                    <i class="bi bi-box text-muted" style="font-size: 4rem;"></i>
+                    <h4 class="text-muted mt-3">No Featured Products Yet</h4>
+                    <p class="text-muted">Be the first to share your African heritage treasures!</p>
+                    <a href="{% url 'marketplace:upload' %}" class="btn btn-african">
+                        <i class="bi bi-upload"></i> Upload First Product
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Cultural Categories -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <h2 class="text-african fw-bold">Explore Cultural Categories</h2>
+                <p class="lead">Each category represents a unique aspect of African heritage</p>
+            </div>
+        </div>
+
+        {% if categories %}
+            <div class="row">
+                {% for category in categories %}
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header card-header-african">
+                                <h5 class="mb-0">
+                                    <i class="bi bi-tag"></i> {{ category.name }}
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{ category.description|default:"Discover traditional items from this cultural category." }}</p>
+                                
+                                {% if category.cultural_significance %}
+                                    <div class="mt-3">
+                                        <h6 class="text-african">Cultural Heritage:</h6>
+                                        <p class="small text-muted">{{ category.cultural_significance|truncatewords:20 }}</p>
+                                    </div>
+                                {% endif %}
+                                
+                                <div class="mt-auto">
+                                    <span class="badge bg-secondary">{{ category.product_set.count }} items</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center py-4">
+                <p class="text-muted">Categories will appear here as products are added.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
