@@ -21,17 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-f7d9t($ae59*llbi-!$1fc2utuzxayw!ncq9)94jxg9j$1x^in')
+SECRET_KEY = 'django-insecure-f7d9t($ae59*llbi-!$1fc2utuzxayw!ncq9)94jxg9j$1x^in'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
+DEBUG = True
 
-# Vercel deployment configuration
-if 'VERCEL' in os.environ:
-    DEBUG = False
-    ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1']
-else:
-    ALLOWED_HOSTS = ['*']  # Allow all hosts for local network sharing
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -43,15 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'corsheaders',
     'marketplace',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # For static files on Vercel
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,25 +75,12 @@ WSGI_APPLICATION = 'african_marketplace.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# Vercel database configuration
-if 'VERCEL' in os.environ:
-    # Use PostgreSQL for production on Vercel
-    import dj_database_url
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=os.environ.get('DATABASE_URL', 'sqlite:///db.sqlite3'),
-            conn_max_age=600,
-            conn_health_checks=True,
-        )
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-else:
-    # Local development with SQLite
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+}
 
 
 # Password validation
@@ -141,19 +119,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Vercel static files configuration
-if 'VERCEL' in os.environ:
-    STATIC_ROOT = BASE_DIR / 'staticfiles_build' / 'static'
-    STATICFILES_DIRS = [BASE_DIR / 'static']
-else:
-    STATIC_ROOT = os.environ.get('STATIC_ROOT', BASE_DIR / 'staticfiles')
-
 # Media files
 MEDIA_URL = '/media/'
-if 'VERCEL' in os.environ:
-    MEDIA_ROOT = BASE_DIR / 'staticfiles_build' / 'media'
-else:
-    MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Login/Logout redirects
 LOGIN_REDIRECT_URL = '/'
@@ -163,43 +131,3 @@ LOGOUT_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Django REST Framework settings
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 20,
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-    ],
-}
-
-# CORS settings for Angular frontend
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",  # Angular dev server
-    "http://127.0.0.1:4200",
-]
-
-# For development, allow all origins
-if DEBUG:
-    CORS_ALLOW_ALL_ORIGINS = True
-    CORS_ALLOW_CREDENTIALS = True
-
-# CORS headers
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-]
