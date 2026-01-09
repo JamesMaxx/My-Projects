@@ -1,0 +1,140 @@
+Appwrite endpoint: https://fra.cloud.appwrite.io project: 6960fa31002441080956 database: 6960fa8500261fc5d186
+Trying https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186 for get database 6960fa8500261fc5d186
+Success from https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186 for get database 6960fa8500261fc5d186: 200
+Database type: tablesdb
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles for exists table profiles
+Success from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles for exists table profiles: 200
+Exists: profiles
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns for profiles.attribute string
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns while profiles.attribute string; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string
+Response 409 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string: {"message":"Column with the requested key 'name' already exists. Column keys must be unique, try again with a different key.","code":409,"type":"column_already_exists","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns for profiles.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns while profiles.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/text for profiles.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/text while profiles.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/profiles/columns for profiles.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/profiles/columns while profiles.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/profiles/columns/text for profiles.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/profiles/columns/text while profiles.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns for profiles.attribute string
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns while profiles.attribute string; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string
+Response 400 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string: {"message":"Param \"size\" is not optional.","code":400,"type":"general_argument_invalid","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns for profiles.attribute string
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns while profiles.attribute string; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string
+Response 409 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string: {"message":"Column with the requested key 'location' already exists. Column keys must be unique, try again with a different key.","code":409,"type":"column_already_exists","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns for profiles.attribute string
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns while profiles.attribute string; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string
+Response 409 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string: {"message":"Column with the requested key 'githubUsername' already exists. Column keys must be unique, try again with a different key.","code":409,"type":"column_already_exists","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns for profiles.attribute string
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns while profiles.attribute string; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string
+Response 409 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string: {"message":"Column with the requested key 'userId' already exists. Column keys must be unique, try again with a different key.","code":409,"type":"column_already_exists","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns for profiles.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns while profiles.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/text for profiles.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/text while profiles.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/profiles/columns for profiles.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/profiles/columns while profiles.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/profiles/columns/text for profiles.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/profiles/columns/text while profiles.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns for profiles.attribute string
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns while profiles.attribute string; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string
+Response 400 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string: {"message":"Param \"size\" is not optional.","code":400,"type":"general_argument_invalid","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns for profiles.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns while profiles.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/text for profiles.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/text while profiles.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/profiles/columns for profiles.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/profiles/columns while profiles.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/profiles/columns/text for profiles.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/profiles/columns/text while profiles.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns for profiles.attribute string
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns while profiles.attribute string; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string
+Response 400 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/profiles/columns/string for profiles.attribute string: {"message":"Param \"size\" is not optional.","code":400,"type":"general_argument_invalid","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts for exists table posts
+Success from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts for exists table posts: 200
+Exists: posts
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns for posts.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns while posts.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/text for posts.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/text while posts.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/posts/columns for posts.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/posts/columns while posts.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/posts/columns/text for posts.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/posts/columns/text while posts.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns for posts.attribute string
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns while posts.attribute string; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/string for posts.attribute string
+Response 400 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/string for posts.attribute string: {"message":"Param \"size\" is not optional.","code":400,"type":"general_argument_invalid","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns for posts.attribute string
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns while posts.attribute string; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/string for posts.attribute string
+Response 409 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/string for posts.attribute string: {"message":"Column with the requested key 'author' already exists. Column keys must be unique, try again with a different key.","code":409,"type":"column_already_exists","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns for posts.attribute string
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns while posts.attribute string; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/string for posts.attribute string
+Response 409 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/string for posts.attribute string: {"message":"Column with the requested key 'authorId' already exists. Column keys must be unique, try again with a different key.","code":409,"type":"column_already_exists","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns for posts.attribute integer
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns while posts.attribute integer; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/integer for posts.attribute integer
+Response 409 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/integer for posts.attribute integer: {"message":"Column with the requested key 'likes' already exists. Column keys must be unique, try again with a different key.","code":409,"type":"column_already_exists","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns for posts.attribute integer
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns while posts.attribute integer; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/integer for posts.attribute integer
+Response 409 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/integer for posts.attribute integer: {"message":"Column with the requested key 'dislikes' already exists. Column keys must be unique, try again with a different key.","code":409,"type":"column_already_exists","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns for posts.attribute datetime
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns while posts.attribute datetime; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/datetime for posts.attribute datetime
+Response 409 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/posts/columns/datetime for posts.attribute datetime: {"message":"Column with the requested key 'createdAt' already exists. Column keys must be unique, try again with a different key.","code":409,"type":"column_already_exists","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments for exists table comments
+Success from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments for exists table comments: 200
+Exists: comments
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns for comments.attribute string
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns while comments.attribute string; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns/string for comments.attribute string
+Response 409 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns/string for comments.attribute string: {"message":"Column with the requested key 'postId' already exists. Column keys must be unique, try again with a different key.","code":409,"type":"column_already_exists","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns for comments.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns while comments.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns/text for comments.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns/text while comments.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/comments/columns for comments.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/comments/columns while comments.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/comments/columns/text for comments.attribute text
+Got 404 from https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/tables/comments/columns/text while comments.attribute text; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns for comments.attribute string
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns while comments.attribute string; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns/string for comments.attribute string
+Response 400 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns/string for comments.attribute string: {"message":"Param \"size\" is not optional.","code":400,"type":"general_argument_invalid","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns for comments.attribute string
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns while comments.attribute string; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns/string for comments.attribute string
+Response 409 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns/string for comments.attribute string: {"message":"Column with the requested key 'authorId' already exists. Column keys must be unique, try again with a different key.","code":409,"type":"column_already_exists","version":"1.8.1"}
+Body is unusable: Body has already been read
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns for comments.attribute datetime
+Got 404 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns while comments.attribute datetime; trying fallback if available
+Trying https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns/datetime for comments.attribute datetime
+Response 409 from https://fra.cloud.appwrite.io/v1/tablesdb/6960fa8500261fc5d186/tables/comments/columns/datetime for comments.attribute datetime: {"message":"Column with the requested key 'createdAt' already exists. Column keys must be unique, try again with a different key.","code":409,"type":"column_already_exists","version":"1.8.1"}
+Body is unusable: Body has already been read
+
+Done. Collections/tables ensured (profiles, posts, comments).

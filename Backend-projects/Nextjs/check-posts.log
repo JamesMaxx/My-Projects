@@ -1,0 +1,10 @@
+Using Appwrite base: https://fra.cloud.appwrite.io
+Project: 6960fa31002441080956 DB: 6960fa8500261fc5d186 posts collection: posts
+Querying: https://fra.cloud.appwrite.io/v1/databases/6960fa8500261fc5d186/collections/posts/documents
+Status: 404
+Non-OK response: {
+  "message": "Collection with the requested ID 'posts' could not be found.",
+  "code": 404,
+  "type": "collection_not_found",
+  "version": "1.8.1"
+}

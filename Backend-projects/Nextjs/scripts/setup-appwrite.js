@@ -42,11 +42,17 @@ client
 
 const databases = new sdk.Databases(client);
 
-// IDs we will use (change if you prefer different ids)
-const DB_ID = 'gitconnect_db';
-const PROFILES_ID = 'profiles';
-const POSTS_ID = 'posts';
-const COMMENTS_ID = 'comments';
+// IDs we will use (can be overridden via CLI or env vars)
+// CLI args: --database <id> --profiles <id> --posts <id> --comments <id>
+const DB_ID = argvArg('--database') || process.env.APPWRITE_DATABASE || process.env.NEXT_PUBLIC_APPWRITE_DATABASE || 'gitconnect_db';
+const PROFILES_ID = argvArg('--profiles') || process.env.APPWRITE_COLLECTION_PROFILES || process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_PROFILES || 'profiles';
+const POSTS_ID = argvArg('--posts') || process.env.APPWRITE_COLLECTION_POSTS || process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_POSTS || 'posts';
+const COMMENTS_ID = argvArg('--comments') || process.env.APPWRITE_COLLECTION_COMMENTS || process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_COMMENTS || 'comments';
+
+if (!DB_ID) {
+  console.error('No database id specified. Provide --database or set APPWRITE_DATABASE / NEXT_PUBLIC_APPWRITE_DATABASE.');
+  process.exit(1);
+}
 
 async function safe(fn, name) {
   try {
@@ -59,7 +65,12 @@ async function safe(fn, name) {
       console.log(`Exists: ${name}`);
       return null;
     }
-    console.error(`Error during ${name}:`, err.message || err);
+    console.error(`Error during ${name}:`, err && err.message ? err.message : err);
+    try {
+      console.error('Full error (details):', JSON.stringify(err, Object.getOwnPropertyNames(err), 2));
+    } catch (e) {
+      console.error('Could not stringify error object', e);
+    }
     return null;
   }
 }
@@ -84,6 +95,7 @@ async function main() {
 
   // Posts collection
   await safe(() => databases.createCollection(DB_ID, POSTS_ID, 'Posts', ['role:all'], ['role:users']), `create collection ${POSTS_ID}`);
+  await safe(() => databases.getCollection(DB_ID, POSTS_ID), `verify collection ${POSTS_ID}`);
   await safe(() => databases.createTextAttribute(DB_ID, POSTS_ID, 'body', true), 'posts.body');
   await safe(() => databases.createStringAttribute(DB_ID, POSTS_ID, 'author', 128, true), 'posts.author');
   await safe(() => databases.createStringAttribute(DB_ID, POSTS_ID, 'authorId', 36, true), 'posts.authorId');
@@ -93,6 +105,7 @@ async function main() {
 
   // Comments collection
   await safe(() => databases.createCollection(DB_ID, COMMENTS_ID, 'Comments', ['role:all'], ['role:users']), `create collection ${COMMENTS_ID}`);
+  await safe(() => databases.getCollection(DB_ID, COMMENTS_ID), `verify collection ${COMMENTS_ID}`);
   await safe(() => databases.createStringAttribute(DB_ID, COMMENTS_ID, 'postId', 36, true), 'comments.postId');
   await safe(() => databases.createTextAttribute(DB_ID, COMMENTS_ID, 'text', true), 'comments.text');
   await safe(() => databases.createStringAttribute(DB_ID, COMMENTS_ID, 'authorId', 36, true), 'comments.authorId');
