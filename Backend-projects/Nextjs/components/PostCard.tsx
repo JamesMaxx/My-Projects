@@ -15,38 +15,29 @@ export default function PostCard({ post }: { post: Post }) {
   const [comment, setComment] = useState('');
 
   useEffect(() => {
-    // try to load counts from post if present
-    // @ts-ignore
-    setLikes(post.likes || 0);
-    // @ts-ignore
-    setDislikes(post.dislikes || 0);
+    setLikes((post as any).likes || 0);
+    setDislikes((post as any).dislikes || 0);
   }, [post]);
 
   async function handleLike() {
     try {
       await likePost(post.id);
       setLikes((l) => l + 1);
-    } catch (err) {
-      // ignore
-    }
+    } catch (err) {}
   }
 
   async function handleDislike() {
     try {
       await dislikePost(post.id);
       setDislikes((d) => d + 1);
-    } catch (err) {
-      // ignore
-    }
+    } catch (err) {}
   }
 
   async function loadComments() {
     try {
       const c = await listComments(post.id);
       setComments(c);
-    } catch (err) {
-      // ignore
-    }
+    } catch (err) {}
   }
 
   async function handleAddComment(e: React.FormEvent) {
@@ -56,25 +47,36 @@ export default function PostCard({ post }: { post: Post }) {
       await createComment(post.id, { text: comment, createdAt: new Date().toISOString() });
       setComment('');
       await loadComments();
-    } catch (err) {
-      // ignore
-    }
+    } catch (err) {}
   }
 
   return (
-    <div className="border rounded p-4">
-      <div className="text-sm text-gray-500">{post.author}</div>
-      <div className="mt-2">{post.body}</div>
-      <div className="mt-3 flex gap-3 items-center text-sm text-gray-600">
-        <button onClick={handleLike} className="px-2 py-1 bg-gray-100 rounded">Like ({likes})</button>
-        <button onClick={handleDislike} className="px-2 py-1 bg-gray-100 rounded">Dislike ({dislikes})</button>
-        <button onClick={() => { setShowComments(!showComments); if (!showComments) loadComments(); }} className="px-2 py-1 bg-gray-100 rounded">Comments ({comments.length})</button>
+    <article className="bg-white shadow-sm border rounded-lg p-5 hover:shadow-md transition">
+      <div className="flex items-start justify-between">
+        <div>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-sm font-medium text-gray-700">{(post.author || 'U').slice(0,1)}</div>
+            <div>
+              <div className="text-sm font-medium text-gray-800">{post.author}</div>
+              <div className="text-xs text-gray-500">{(post as any).createdAt ? new Date((post as any).createdAt).toLocaleString() : ''}</div>
+            </div>
+          </div>
+        </div>
+        <div className="text-sm text-gray-500">#{post.id?.slice(0,6)}</div>
+      </div>
+
+      <div className="mt-3 text-gray-800 whitespace-pre-wrap">{post.body}</div>
+
+      <div className="mt-4 flex items-center gap-3 text-sm">
+        <button onClick={handleLike} className="flex items-center gap-2 px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">👍 <span>{likes}</span></button>
+        <button onClick={handleDislike} className="flex items-center gap-2 px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">👎 <span>{dislikes}</span></button>
+        <button onClick={() => { setShowComments(!showComments); if (!showComments) loadComments(); }} className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">Comments ({comments.length})</button>
       </div>
 
       {showComments && (
-        <div className="mt-3">
+        <div className="mt-4">
           <form onSubmit={handleAddComment} className="space-y-2">
-            <input value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Write a comment..." className="w-full border p-2" />
+            <input value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Write a comment..." className="w-full border rounded px-3 py-2" />
             <div>
               <button className="bg-blue-600 text-white px-3 py-1 rounded">Comment</button>
             </div>
@@ -91,6 +93,6 @@ export default function PostCard({ post }: { post: Post }) {
           </div>
         </div>
       )}
-    </div>
+    </article>
   );
 }

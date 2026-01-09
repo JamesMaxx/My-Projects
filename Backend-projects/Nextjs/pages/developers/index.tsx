@@ -22,8 +22,8 @@ export default function Developers() {
   }, []);
 
   return (
-    <div>
-      <div className="flex items-center justify-between mb-4">
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">Developers</h1>
         <div>
           {health ? (
@@ -37,7 +37,8 @@ export default function Developers() {
           )}
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {devs.length === 0 && <div className="text-sm text-gray-600">No developers yet (configure Appwrite collections).</div>}
         {devs.map((d: any) => (
           <ProfileCard key={d.$id || d.id} id={d.$id || d.id} name={d.name || d.username || 'Unnamed'} title={d.title || d.role || ''} />

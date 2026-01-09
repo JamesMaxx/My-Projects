@@ -26,29 +26,42 @@ export default function DeveloperProfile() {
       {!profile && <p className="text-sm text-gray-600">Loading...</p>}
 
       {profile && (
-        <>
-          <section className="mt-4">
-            <h2 className="font-semibold">Personal details</h2>
-            <div className="mt-2">{profile.name}</div>
-            <div className="text-sm text-gray-600">{profile.location}</div>
-            <p className="mt-2">{profile.bio}</p>
-          </section>
+        <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <aside className="md:col-span-1 bg-white border rounded-lg p-4 shadow-sm">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center text-2xl font-semibold">{profile.name ? profile.name.charAt(0).toUpperCase() : 'U'}</div>
+              <div>
+                <div className="font-semibold text-lg">{profile.name}</div>
+                <div className="text-sm text-gray-500">{profile.location}</div>
+              </div>
+            </div>
+            <div className="mt-4">
+              <a href={`https://github.com/${profile.githubUsername}`} target="_blank" rel="noreferrer" className="text-blue-600">@{profile.githubUsername}</a>
+            </div>
+          </aside>
 
-          <section className="mt-4">
-            <h2 className="font-semibold">Education</h2>
-            <div className="mt-2">{profile.education || 'Not provided'}</div>
-          </section>
+          <main className="md:col-span-2 space-y-4">
+            <section className="bg-white border rounded-lg p-4 shadow-sm">
+              <h2 className="font-semibold">About</h2>
+              <p className="mt-2 text-gray-700">{profile.bio || 'No bio provided.'}</p>
+            </section>
 
-          <section className="mt-4">
-            <h2 className="font-semibold">Experience</h2>
-            <div className="mt-2">{profile.experience || 'Not provided'}</div>
-          </section>
+            <section className="bg-white border rounded-lg p-4 shadow-sm">
+              <h2 className="font-semibold">Experience</h2>
+              <div className="mt-2 text-gray-700">{profile.experience || 'Not provided'}</div>
+            </section>
 
-          <section className="mt-4">
-            <h2 className="font-semibold">GitHub Repos</h2>
-            <GitHubRepos username={profile.githubUsername} />
-          </section>
-        </>
+            <section className="bg-white border rounded-lg p-4 shadow-sm">
+              <h2 className="font-semibold">Education</h2>
+              <div className="mt-2 text-gray-700">{profile.education || 'Not provided'}</div>
+            </section>
+
+            <section className="bg-white border rounded-lg p-4 shadow-sm">
+              <h2 className="font-semibold">GitHub Repos</h2>
+              <GitHubRepos username={profile.githubUsername} />
+            </section>
+          </main>
+        </div>
       )}
     </div>
   );
