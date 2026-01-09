@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "appwrite": "^8.0.0",
-    "next": "14.2.0",
+    "next": "^14.2.35",
+    "node-appwrite": "^21.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^25.0.3",
     "@types/react": "^19.2.7",
     "autoprefixer": "^10.4.23",

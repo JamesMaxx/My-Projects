@@ -2,10 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #__next {
-  height: 100%;
-}
+@layer base {
+  html, body, #__next {
+    height: 100%;
+  }
 
-body {
-  @apply bg-gray-50 text-gray-900;
+  body {
+    /* Use explicit colors instead of @apply to avoid PostCSS/Tailwind utility resolution issues
+       during local development. These values match Tailwind's `gray-50` and `gray-900`. */
+    background-color: #F9FAFB; /* gray-50 */
+    color: #111827; /* gray-900 */
+  }
 }
