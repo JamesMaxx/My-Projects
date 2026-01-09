@@ -5,6 +5,9 @@ type Post = {
   id: string;
   author: string;
   body: string;
+  createdAt?: string;
+  likes?: number;
+  dislikes?: number;
 };
 
 export default function PostCard({ post }: { post: Post }) {

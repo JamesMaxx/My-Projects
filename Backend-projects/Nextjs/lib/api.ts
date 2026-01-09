@@ -1,8 +1,12 @@
 import { account, databases } from './appwrite';
-// @ts-ignore
-import Appwrite from 'appwrite';
 
-const AW: any = Appwrite;
+function generateId() {
+  try {
+    if (typeof crypto !== 'undefined' && typeof (crypto as any).randomUUID === 'function') return (crypto as any).randomUUID();
+  } catch (e) {}
+  // fallback
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 9)}`;
+}
 
 const DB_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE || '';
 const PROFILES_COLLECTION = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_PROFILES || '';
@@ -16,7 +20,7 @@ export async function signUp(name: string, email: string, password: string) {
       // Some SDKs use account.create(userId, email, password, name)
       try {
         // @ts-ignore
-        return await account.create(AW.ID.unique(), email, password, name);
+        return await account.create(generateId(), email, password, name);
       } catch (e) {
         // fallback to other signature
       }
@@ -52,7 +56,7 @@ export async function signIn(email: string, password: string) {
 
 export async function createProfile(data: Record<string, any>) {
   try {
-    const id = AW?.ID?.unique ? AW.ID.unique() : 'unique()';
+  const id = generateId();
     // @ts-ignore
     return await databases.createDocument(DB_ID, PROFILES_COLLECTION, id, data);
   } catch (err) {
@@ -110,7 +114,7 @@ export async function listDevelopers() {
 
 export async function createPost(data: Record<string, any>) {
   try {
-    const id = AW?.ID?.unique ? AW.ID.unique() : 'unique()';
+  const id = generateId();
     // @ts-ignore
     return await databases.createDocument(DB_ID, POSTS_COLLECTION, id, data);
   } catch (err) {
@@ -154,7 +158,7 @@ export async function dislikePost(postId: string) {
 
 export async function createComment(postId: string, data: Record<string, any>) {
   try {
-    const id = AW?.ID?.unique ? AW.ID.unique() : 'unique()';
+  const id = generateId();
     // @ts-ignore
     return await databases.createDocument(DB_ID, COMMENTS_COLLECTION, id, { postId, ...data });
   } catch (err) {
