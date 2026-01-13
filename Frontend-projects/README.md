@@ -1,6 +1,6 @@
 # Frontend Projects
 
-This repository contains a collection of frontend projects that I have worked on. Each project is contained within its own directory and includes a README file with instructions on how to run and use the project.
+This repository contains a collection of frontend projects that I have worked on. Each project is contained within its own directory and includes a README file with instructions on how to run and use the project. This also includes new update on new frontend sites.
 
 ## Getting Started
 
