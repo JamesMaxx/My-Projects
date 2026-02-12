@@ -1,0 +1,9 @@
+[
+  {
+    "name": "moringa-zammad-ticketing-server",
+    "host": "35.241.229.54",
+    "user": "netmon",
+    "port": "22",
+    "key_path": "sshkey"
+  }
+]
