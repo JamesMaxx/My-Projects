@@ -1,6 +1,7 @@
 services:
   postgres:
     image: postgres:16-alpine
+    restart: unless-stopped
     environment:
       POSTGRES_USER: dockhand
       POSTGRES_PASSWORD: changeme
@@ -10,6 +11,7 @@ services:
 
   dockhand:
     image: fnsys/dockhand:latest
+    restart: unless-stopped
     ports:
       - 4000:3000
     environment:
