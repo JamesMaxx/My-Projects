@@ -1,8 +1,0 @@
-body { font-family: Arial, sans-serif; background:#f7f7f7; color:#222; }
-.container { max-width:980px; margin:24px auto; background: #fff; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
-.server { border:1px solid #eee; padding:10px; margin:10px 0; }
-.jail { margin-left:10px; }
-.error { color: #b00020; }
-.none { color: #666; }
-form input { margin:4px 8px 4px 0; padding:6px; }
-button { padding:6px 10px }
